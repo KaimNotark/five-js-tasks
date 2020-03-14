@@ -1,2 +1,2 @@
 # five-js-tasks
-Five JavaScrypt tasks.
+Five JavaScript tasks.
