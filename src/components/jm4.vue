@@ -1,14 +1,26 @@
 <template>
   <div class="container">
-    <br />
-    <h1 class="title">Test 4</h1>
+    <h2 class="subtitle _green">Задача 4</h2>
+    <p class="text">
+      Функция принимает 2 массива с уникальными элементами.
+      Функция должна возвращать число элементов, которые 
+      содержаться в обоих массивах.
+    </p>
+    <p class="text">
+      <span class="_green">Пример:</span>
+    </p>
+    <p class="text">
+      fourth(['Erlang', 'JavaScript'], ['Go', 'C++', 'Erlang']);
+      <span class="_gray">// 1</span>
+    </p>
 
-    <input type="text" class="users-string" v-model="userArr1" />
+    <h3 class="sub-subtitle _green">Решение:</h3>
+    <input type="text" size="100" class="users-string" v-model="userArr1" />
     <p class="string">
       <span class="_green">Users Arr1:</span>
       " {{ userArr1 }} "
     </p>
-    <input type="text" class="users-string" v-model="userArr2" />
+    <input type="text" size="100" class="users-string" v-model="userArr2" />
     <p class="string">
       <span class="_green">Users Arr2:</span>
       " {{ userArr2 }} "
@@ -78,7 +90,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../stylesheets/variables.scss";
+@import "../stylesheets/resets.scss";
+
+%text-input {
+  color: $color-second;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+%input {
+  height: 45px;
+  border: 1px solid $color-second;
+  background-color: $color-white;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.users-string {
+  @extend %text-input;
+  @extend %input;
+}
+.text {
+  width: 700px;
+  margin-bottom: 5px;
+}
+
+.sub-subtitle {
+  margin-top: 15px;
+}
 ._green {
-  color: green;
+  color: $color-green;
+}
+._red {
+  color: $color-red;
+}
+._gray {
+  color: $color-gray;
 }
 </style>
