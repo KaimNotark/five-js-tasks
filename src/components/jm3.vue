@@ -1,18 +1,37 @@
 <template>
   <div class="container">
-    <br />
-    <h1 class="title">Test 3</h1>
+    <h2 class="subtitle _green">Задача 3</h2>
+    <p class="text">
+      На входе функции год (числом).
+      Функция должна вернуть первую пятницу 13-е этого года в виде объекта Date.
+    </p>
+    <p class="text">
+      <span class="_green">Пример:</span>
+    </p>
+    <p class="text">
+      third(2019)
+      <span class="_gray">// Fri Sep 13 2019 03:00:00 GMT+0300 (Moscow Standard Time)</span>
+    </p>
 
-    <input type="text" class="users-string" v-model="usersYear" />
-    <p class="string">
-      <span class="_green">Users year:</span>
+    <h3 class="sub-subtitle _green">Решение:</h3>
+    <p class="text">Введите год:</p>
+    <input type="text" size="4" class="users-string" v-model="usersYear" />
+    <p class="text">
+      <span class="_green">Вы ввели:</span>
       " {{ usersYear }} "
     </p>
-    <br />
-    <button type="button" class="button" @click="onAnalysis">Analysis</button>
-    <p class="string">
-      <span class="_green">First 13-th:</span>
-      " {{ first13th }} "
+
+    <b-button
+      variant="outline-primary"
+      type="button"
+      class="button"
+      @click="onAnalysis"
+    >Показать результат</b-button>
+
+    <p class="text">
+      <span class="_green">Первая ПТ 13-е:</span> "
+      <span class="_red">{{ first13th }}</span>
+ "
     </p>
     <hr />
   </div>
@@ -44,7 +63,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../stylesheets/variables.scss";
+@import "../stylesheets/resets.scss";
+
+%text-input {
+  color: $color-second;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+%input {
+  height: 45px;
+  border: 1px solid $color-second;
+  background-color: $color-white;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.users-string {
+  @extend %text-input;
+  @extend %input;
+}
+.text {
+  width: 700px;
+  margin-bottom: 5px;
+}
+
+.sub-subtitle {
+  margin-top: 15px;
+}
 ._green {
-  color: green;
+  color: $color-green;
+}
+._red {
+  color: $color-red;
+}
+._gray {
+  color: $color-gray;
 }
 </style>
