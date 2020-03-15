@@ -1,20 +1,42 @@
 <template>
   <div class="container">
-    <br />
-    <input type="text" class="users-string" v-model="originalString" />
+    <h2 class="subtitle _green">Задача 2</h2>
+    <p class="text">
+      На входе функции строка со словами, разделенными пробелом.
+      Нужно вернуть строку, где остались только те слова, которые встречаются в строке 2 или более раз (только повторяющиеся).
+      Порядок должен сохранятся согласно первому найденному слову (см пример).
+      Если повторющихся слов нет - возвращается пустая строка.
+    </p>
+    <p class="text">
+      <span class="_green">Пример:</span>
+    </p>
+    <p class="text">var srt = 'alpha beta beta gamma gamma gamma delta beta beta delta';</p>
+    <p class="text">
+      second(str);
+      <span class="_gray">// 'beta gamma delta'</span>
+    </p>
+
+    <h3 class="sub-subtitle _green">Решение:</h3>
+    <p class="text">Введите строку:</p>
+    <input type="text" size="100" class="users-string" v-model="originalString" />
     <p class="string">
-      <span class="_green">Original string:</span>
+      <span class="_green">Вы ввели:</span>
       " {{ originalString }} "
     </p>
-    <br />
-    <button type="button" class="button" @click="onAnalysis">Analysis</button>
-    <p class="string">
-      <span class="_green">Final string:</span>
-      " {{ finalString }} "
+
+    <b-button
+      variant="outline-primary"
+      type="button"
+      class="button"
+      @click="onAnalysis"
+    >Показать результат</b-button>
+
+    <p class="text">
+      <span class="_green">Результат:</span>
+      "
+      <span class="_red">{{ finalString }}</span> "
     </p>
-    {{ allWordsInString }}
-    <br />
-    {{ repeatedWord }}
+
     <hr />
   </div>
 </template>
@@ -64,7 +86,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../stylesheets/variables.scss";
+@import "../stylesheets/resets.scss";
+
+%text-input {
+  color: $color-second;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+%input {
+  height: 45px;
+  border: 1px solid $color-second;
+  background-color: $color-white;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.users-string {
+  @extend %text-input;
+  @extend %input;
+}
+.text {
+  width: 700px;
+  margin-bottom: 5px;
+}
+
+.sub-subtitle {
+  margin-top: 15px;
+}
 ._green {
-  color: green;
+  color: $color-green;
+}
+._red {
+  color: $color-red;
+}
+._gray {
+  color: $color-gray;
 }
 </style>
