@@ -9,11 +9,21 @@
     <p class="text">
       <span class="_green">Пример:</span>
     </p>
-    <ul>
-      <li>first("abcd111"); // "abcd1"</li>
-      <li>first("aaaa22122bbbb"); // "aaaa212bbbb"</li>
-      <li>first("a8n64m33xxx000x0"); // "a8n64m3xxx0x0"</li>
+    <ul class="list">
+      <li class="item">
+        first("abcd111");
+        <span class="_gray">// "abcd1"</span>
+      </li>
+      <li class="item">
+        first("aaaa22122bbbb");
+        <span class="_gray">// "aaaa212bbbb"</span>
+      </li>
+      <li class="item">
+        first("a8n64m33xxx000x0");
+        <span class="_gray">// "a8n64m3xxx0x0"</span>
+      </li>
     </ul>
+
     <h3 class="sub-subtitle _green">Решение:</h3>
     <p class="text">Введите строку:</p>
     <input type="text" size="50" class="users-string" v-model="originalString" />
@@ -21,6 +31,7 @@
       <span class="_green">Вы ввели:</span>
       " {{ originalString }} "
     </p>
+
     <b-button
       variant="outline-primary"
       type="button"
@@ -55,10 +66,10 @@ export default {
       // console.log("JM1--onAnalysis - lengthOfString= " + this.lengthOfString);
 
       for (let i = 0; i < this.lengthOfString; i++) {
-        if ( parseInt(this.originalString[i], 10)>=0 ) {
+        if (parseInt(this.originalString[i], 10) >= 0) {
           // console.log(i + "- " + parseInt(this.originalString[i], 10));
 
-          if ( !(parseInt(this.originalString[i + 1], 10)>=0 )) {
+          if (!(parseInt(this.originalString[i + 1], 10) >= 0)) {
             this.finalString += this.originalString[i];
           } else {
             if (
@@ -116,5 +127,8 @@ export default {
 }
 ._red {
   color: $color-red;
+}
+._gray {
+  color: $color-gray;
 }
 </style>
