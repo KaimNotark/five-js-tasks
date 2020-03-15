@@ -3,7 +3,7 @@
     <h2 class="subtitle _green">Задача 4</h2>
     <p class="text">
       Функция принимает 2 массива с уникальными элементами.
-      Функция должна возвращать число элементов, которые 
+      Функция должна возвращать число элементов, которые
       содержаться в обоих массивах.
     </p>
     <p class="text">
@@ -15,27 +15,41 @@
     </p>
 
     <h3 class="sub-subtitle _green">Решение:</h3>
-    <input type="text" size="100" class="users-string" v-model="userArr1" />
+    <p class="text">Введите слова в первый массив через пробел:</p>
+
+    <input type="text" size="100" class="users-string" v-model="userArr1Str" @change="doFirstArray" />
     <p class="string">
-      <span class="_green">Users Arr1:</span>
+      <span class="_green">Первый массив:</span>
       " {{ userArr1 }} "
     </p>
-    <input type="text" size="100" class="users-string" v-model="userArr2" />
+    <p class="text">Введите слова во второй массив через пробел:</p>
+
+    <input
+      type="text"
+      size="100"
+      class="users-string"
+      v-model="userArr2Str"
+      @change="doSecondArray"
+    />
     <p class="string">
-      <span class="_green">Users Arr2:</span>
+      <span class="_green">Второй массив:</span>
       " {{ userArr2 }} "
     </p>
 
     <br />
-    <button type="button" class="button" @click="onAnalysis">Analysis</button>
-    <p class="string">
-      <span class="_green">Number of matches:</span>
-      " {{ numberOfMatches }} "
+    <b-button
+      variant="outline-primary"
+      type="button"
+      class="button"
+      @click="onAnalysis"
+    >Показать результат</b-button>
+
+    <p class="text">
+      <span class="_green">Количество совпадений:</span>
+      "
+      <span class="_red">{{ numberOfMatches }}</span>
+      "
     </p>
-    <br />
-    {{ filteredArr1 }}
-    <br />
-    {{ filteredArr2 }}
     <hr />
   </div>
 </template>
@@ -52,11 +66,26 @@ export default {
       filteredArr1: [],
       filteredArr2: [],
 
+      userArr1Str: "",
+      userArr2Str: "",
+
       numberOfMatches: 0
     };
   },
 
+  created() {
+    this.userArr1Str = this.userArr1.join(" ");
+    this.userArr2Str = this.userArr2.join(" ");
+  },
+
   methods: {
+    doFirstArray() {
+      this.userArr1 = this.userArr1Str.split(" ");
+    },
+    doSecondArray() {
+      this.userArr2 = this.userArr2Str.split(" ");
+    },
+
     onAnalysis() {
       this.numberOfMatches = 0;
 
