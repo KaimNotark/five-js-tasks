@@ -4,23 +4,28 @@
       <header class="header">
         <div class="header-container">
           <img src="/images/js-logo.png" alt class="header-img" />
+          <h1 class="header-title">Демонстрация решений пяти задач.</h1>
           <a href="https://kaimnotark.github.io/LP_DEAB/" class="header-link" target="_blank">
             <span class="__capital">landing page</span>
-            (open it on desktop)
+            (открой на компьютере)
           </a>
         </div>
       </header>
 
       <main class="main">
-        <simplebar data-simplebar-auto-hide="false" class="main-table__body">
-          <HelloWorld msg="Welcome to Your Vue.js App" />
+        <simplebar data-simplebar-auto-hide="false" class="main-scroll">
+          <jm1 />
+          <jm2 />
+          <jm3 />
+          <jm4 />
+          <jm5 />
         </simplebar>
       </main>
 
       <footer class="footer">
         <a href="https://kaimnotark.github.io/LP_DEAB/" class="footer-link" target="_blank">
           <span class="__capital">landing page</span>
-          (open it on cell phone)
+          (открой на телефоне)
         </a>
       </footer>
     </div>
@@ -31,13 +36,21 @@
 import simplebar from "simplebar-vue";
 import "simplebar/dist/simplebar.min.css";
 
-import HelloWorld from "./components/HelloWorld.vue";
+import jm1 from "./components/jm1.vue";
+import jm2 from "./components/jm2.vue";
+import jm3 from "./components/jm3.vue";
+import jm4 from "./components/jm4.vue";
+import jm5 from "./components/jm5.vue";
 
 export default {
   name: "App",
   components: {
     simplebar,
-    HelloWorld
+    jm1,
+    jm2,
+    jm3,
+    jm4,
+    jm5
   }
 };
 </script>
@@ -54,25 +67,10 @@ export default {
   bottom: -10px;
   width: 46%;
   height: 2px;
-  background-color: $color-yellow-light;
+  background-color: $color-main-light;
 }
 
 $font-family-primary: "Roboto", "Verdana", "Arial", sans-serif;
-
-// begin -- styling the scroll bar --
-.simplebar-scrollbar:before {
-  background-color: #8ea4b5;
-}
-
-.simplebar-scrollbar.simplebar-visible:hover::before {
-  opacity: 1;
-}
-
-.simplebar-track.simplebar-vertical {
-  background-color: $color-white;
-}
-
-// end -- styling the scroll bar --
 
 html {
   scroll-behavior: smooth;
@@ -113,6 +111,12 @@ body {
     user-select: none;
   }
 
+  &-title {
+    color: $color-main;
+    font-size: 24px;
+    margin-top: 7px;
+  }
+
   &-link {
     color: $color-white;
     font-size: 14px;
@@ -135,16 +139,19 @@ body {
 
   &-link:hover {
     text-decoration: none;
-    color: $color-yellow-main;
+    color: $color-main;
   }
 }
 
 .main {
-  display: flex;
-  justify-content: center;
   margin: 20px;
   height: calc(100vh - (115px + 50px));
   min-height: 370px;
+
+  &-scroll {
+    height: calc(100vh - (115px + 50px));
+    overflow-x: hidden;
+  }
 }
 
 .footer {
@@ -177,7 +184,26 @@ body {
 
   &-link:hover {
     text-decoration: none;
-    color: $color-yellow-main;
+    color: $color-main;
   }
 }
+
+.__capital {
+  text-transform: uppercase;
+}
+
+// begin -- styling the scroll bar --
+.simplebar-scrollbar:before {
+  background-color: #8ea4b5;
+}
+
+.simplebar-scrollbar.simplebar-visible:hover::before {
+  opacity: 1;
+}
+
+.simplebar-track.simplebar-vertical {
+  background-color: $color-white;
+}
+
+// end -- styling the scroll bar --
 </style>
