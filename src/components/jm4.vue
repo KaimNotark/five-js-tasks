@@ -50,9 +50,7 @@
       <span class="_red">{{ numberOfMatches }}</span>
       "
     </p>
-    {{ filteredArr1 }}
-    <br />
-    {{ filteredArr2 }}
+
     <hr />
   </div>
 </template>
