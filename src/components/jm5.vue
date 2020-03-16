@@ -47,7 +47,6 @@
       "
     </p>
 
-    <hr />
   </div>
 </template>
 

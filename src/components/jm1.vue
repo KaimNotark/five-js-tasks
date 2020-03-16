@@ -110,13 +110,18 @@ export default {
   padding: 10px;
 }
 
+hr {
+  border-width: 3px;
+  border-color: $color-main;
+}
+
 .users-string {
   @extend %text-input;
   @extend %input;
 }
 .text {
   width: 700px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .sub-subtitle {

@@ -140,6 +140,11 @@ export default {
   padding: 10px;
 }
 
+hr {
+  border-width: 3px;
+  border-color: $color-main;
+}
+
 .users-string {
   @extend %text-input;
   @extend %input;
