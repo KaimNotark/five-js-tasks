@@ -1,29 +1,56 @@
 <template>
   <div class="container">
-    <br />
-    <h1 class="title">Test 4</h1>
+    <h2 class="subtitle _green">Задача 4</h2>
+    <p class="text">
+      Функция принимает 2 массива с уникальными элементами.
+      Функция должна возвращать число элементов, которые
+      содержаться в обоих массивах.
+    </p>
+    <p class="text">
+      <span class="_green">Пример:</span>
+    </p>
+    <p class="text">
+      fourth(['Erlang', 'JavaScript'], ['Go', 'C++', 'Erlang']);
+      <span class="_gray">// 1</span>
+    </p>
 
-    <input type="text" class="users-string" v-model="userArr1" />
+    <h3 class="sub-subtitle _green">Решение:</h3>
+    <p class="text">Введите слова в первый массив через пробел:</p>
+
+    <input type="text" size="100" class="users-string" v-model="userArr1Str" @change="doFirstArray" />
     <p class="string">
-      <span class="_green">Users Arr1:</span>
+      <span class="_green">Первый массив:</span>
       " {{ userArr1 }} "
     </p>
-    <input type="text" class="users-string" v-model="userArr2" />
+    <p class="text">Введите слова во второй массив через пробел:</p>
+
+    <input
+      type="text"
+      size="100"
+      class="users-string"
+      v-model="userArr2Str"
+      @change="doSecondArray"
+    />
     <p class="string">
-      <span class="_green">Users Arr2:</span>
+      <span class="_green">Второй массив:</span>
       " {{ userArr2 }} "
     </p>
 
     <br />
-    <button type="button" class="button" @click="onAnalysis">Analysis</button>
-    <p class="string">
-      <span class="_green">Number of matches:</span>
-      " {{ numberOfMatches }} "
+    <b-button
+      variant="outline-primary"
+      type="button"
+      class="button"
+      @click="onAnalysis"
+    >Показать результат</b-button>
+
+    <p class="text">
+      <span class="_green">Количество совпадений:</span>
+      "
+      <span class="_red">{{ numberOfMatches }}</span>
+      "
     </p>
-    <br />
-    {{ filteredArr1 }}
-    <br />
-    {{ filteredArr2 }}
+
     <hr />
   </div>
 </template>
@@ -40,13 +67,30 @@ export default {
       filteredArr1: [],
       filteredArr2: [],
 
+      userArr1Str: "",
+      userArr2Str: "",
+
       numberOfMatches: 0
     };
   },
 
+  created() {
+    this.userArr1Str = this.userArr1.join(" ");
+    this.userArr2Str = this.userArr2.join(" ");
+  },
+
   methods: {
+    doFirstArray() {
+      this.userArr1 = this.userArr1Str.split(" ");
+    },
+    doSecondArray() {
+      this.userArr2 = this.userArr2Str.split(" ");
+    },
+
     onAnalysis() {
       this.numberOfMatches = 0;
+      this.filteredArr1 = [];
+      this.filteredArr2 = [];
 
       //  deleting identical elements from arrays
       this.filterArray(this.userArr1, this.filteredArr1);
@@ -78,7 +122,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../stylesheets/variables.scss";
+@import "../stylesheets/resets.scss";
+
+%text-input {
+  color: $color-second;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+%input {
+  height: 45px;
+  border: 1px solid $color-second;
+  background-color: $color-white;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.users-string {
+  @extend %text-input;
+  @extend %input;
+}
+.text {
+  width: 700px;
+  margin-bottom: 5px;
+}
+
+.sub-subtitle {
+  margin-top: 15px;
+}
 ._green {
-  color: green;
+  color: $color-green;
+}
+._red {
+  color: $color-red;
+}
+._gray {
+  color: $color-gray;
 }
 </style>
