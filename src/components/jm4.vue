@@ -50,6 +50,9 @@
       <span class="_red">{{ numberOfMatches }}</span>
       "
     </p>
+    {{ filteredArr1 }}
+    <br />
+    {{ filteredArr2 }}
     <hr />
   </div>
 </template>
@@ -88,6 +91,8 @@ export default {
 
     onAnalysis() {
       this.numberOfMatches = 0;
+      this.filteredArr1 = [];
+      this.filteredArr2 = [];
 
       //  deleting identical elements from arrays
       this.filterArray(this.userArr1, this.filteredArr1);
