@@ -5,7 +5,7 @@
         <div class="header-container">
           <img src="/images/js-logo.png" alt class="header-img" />
           <h1 class="header-title">Демонстрация решений пяти задач.</h1>
-          <a href="https://kaimnotark.github.io/LP_DEAB/" class="header-link" target="_blank">
+          <a href="https://kaimnotark.github.io/LP_DEAB/" class="header-link" target="_blank" title="Демонстрация лендинга.">
             <span class="__capital">landing page</span>
             (открой на компьютере)
           </a>
@@ -23,7 +23,7 @@
       </main>
 
       <footer class="footer">
-        <a href="https://kaimnotark.github.io/LP_DEAB/" class="footer-link" target="_blank">
+        <a href="https://kaimnotark.github.io/LP_DEAB/" class="footer-link" target="_blank" title="Демонстрация респонсив у лендинга.">
           <span class="__capital">landing page</span>
           (открой на телефоне)
         </a>
